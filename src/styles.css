@@ -1,12 +1,14 @@
 *{
-    border: border-box;
+    box-sizing: border-box;
 }
 html{
-    font-family: 'Russo One', sans-serif;
+   
     height: 100%;
-    color: white;
+    
 }
 body{
+    font-family: 'Russo One' , sans-serif !important;
+    color: white;
     height: 100%;
     background-color: black;
 }
@@ -15,4 +17,7 @@ a{
 }
 a:hover{
     color: rgb(0, 183, 255);
+}
+.shadow{
+    box-shadow: 0 12px 10px rgb(51, 48, 48);
 }
