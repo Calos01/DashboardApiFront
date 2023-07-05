@@ -1,8 +1,7 @@
-
-  
-    <app-navbar></app-navbar>
-    <div class="row">
-      <app-sidebar class="col-sm-3"></app-sidebar>
-      <div class="col-sm-9">contenido</div>
-    </div>
-
+<app-navbar></app-navbar>
+<div class="row contenidoRow">
+  <app-sidebar class="col-sm-3"></app-sidebar>
+  <div class="col-sm-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
