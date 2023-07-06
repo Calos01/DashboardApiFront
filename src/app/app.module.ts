@@ -8,6 +8,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { VentasComponent } from './sections/ventas/ventas.component';
 import { PedidosComponent } from './sections/pedidos/pedidos.component';
 import { HealthComponent } from './sections/health/health.component';
+import { GraphLineasComponent } from './graphs/graph-lineas/graph-lineas.component';
+import { GraphBarrasComponent } from './graphs/graph-barras/graph-barras.component';
+import { GraphTortasComponent } from './graphs/graph-tortas/graph-tortas.component';
 
 
 
@@ -18,7 +21,10 @@ import { HealthComponent } from './sections/health/health.component';
     SidebarComponent,
     VentasComponent,
     PedidosComponent,
-    HealthComponent
+    HealthComponent,
+    GraphLineasComponent,
+    GraphBarrasComponent,
+    GraphTortasComponent,
   ],
   imports: [
     BrowserModule,
