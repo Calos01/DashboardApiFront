@@ -21,3 +21,10 @@ a:hover{
 .shadow{
     box-shadow: 0 12px 10px rgb(51, 48, 48);
 }
+.section-container{
+    padding: 30px;
+}
+.cards{
+    display: flex;
+    flex-direction: column;
+}
