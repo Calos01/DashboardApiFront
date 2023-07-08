@@ -11,7 +11,7 @@ import { HealthComponent } from './sections/health/health.component';
 import { GraphLineasComponent } from './graphs/graph-lineas/graph-lineas.component';
 import { GraphBarrasComponent } from './graphs/graph-barras/graph-barras.component';
 import { GraphTortasComponent } from './graphs/graph-tortas/graph-tortas.component';
-import { VarCanvasDirective } from './var-canvas.directive';
+import { ServersComponent } from './servers/servers.component';
 
 
 
@@ -26,7 +26,8 @@ import { VarCanvasDirective } from './var-canvas.directive';
     GraphLineasComponent,
     GraphBarrasComponent,
     GraphTortasComponent,
-    VarCanvasDirective,
+    ServersComponent,
+
   ],
   imports: [
     BrowserModule,

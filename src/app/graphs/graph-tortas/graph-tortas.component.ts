@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, HostListener, Input, OnInit} from '@angular/core';
 import { Chart,registerables} from 'chart.js';
-import { CanvasService } from 'src/app/canvas.service';
 Chart.register(...registerables);
 
 @Component({
@@ -16,7 +15,6 @@ chart2!:any;
 constructor() {
   
 }
-
   ngOnInit(): void {
     
   }
@@ -67,9 +65,7 @@ constructor() {
         }]
       }
     });
-    
     // console.log(this.canvasId);
-    
   }
  
   //Nos sirve para que no se pierda los graficos al achicar y agrandar la pantalla
