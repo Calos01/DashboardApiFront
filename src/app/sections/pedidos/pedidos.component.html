@@ -1,1 +1,27 @@
-<p>pedidos works!</p>
+<div class="row col-sm-12">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Customer</td>
+                <td>Amount</td>
+                <td>Pedido Realizado</td>
+                <td>Pedido Completado</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let pedido of pedidos">
+                <td>{{pedido.id}}</td>
+                <td>{{pedido.customer.name}}</td>
+                <td>{{pedido.amount}}</td>
+                <td>{{pedido.pedRealizado}}</td>
+                <!-- buscar date pipe para arreglar las fechas -->
+                <td>{{pedido.pedCompletado | date:'medium'}}</td>
+                <td>Status</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
