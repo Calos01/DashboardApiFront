@@ -1,4 +1,4 @@
-<div class="card col-sm-2 text-dark text-center ">
+<div class="card text-dark text-center" [ngStyle]="{'background-color':color}">
     <div class="card-header ">
         {{serverInput.id}}
     </div>
@@ -6,6 +6,6 @@
         <p >{{serverInput.name}}</p>
     </div>
     <div class="card-footer">
-        <button>{{serverInput.online}}</button>
+        <button (click)="buttonToggle(serverInput.online)">{{serverInput.online}}</button>
     </div>
 </div>

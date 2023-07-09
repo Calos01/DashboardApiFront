@@ -1,7 +1,7 @@
-<div class="row col-sm-12 d-flex gap-5">
-    
-        <div *ngFor="let server of servers">
-            <app-servers [serverInput]="server"></app-servers>
-        </div>  
+<div class="row d-flex flex-row col-sm-12 gap-5">
+
+    <div class="col-sm-3" *ngFor="let server of servers">
+        <app-servers [serverInput]="server"></app-servers>
+    </div>  
 
 </div>
