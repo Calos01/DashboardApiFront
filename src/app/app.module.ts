@@ -12,6 +12,7 @@ import { GraphLineasComponent } from './graphs/graph-lineas/graph-lineas.compone
 import { GraphBarrasComponent } from './graphs/graph-barras/graph-barras.component';
 import { GraphTortasComponent } from './graphs/graph-tortas/graph-tortas.component';
 import { ServersComponent } from './servers/servers.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 
 
@@ -27,6 +28,7 @@ import { ServersComponent } from './servers/servers.component';
     GraphBarrasComponent,
     GraphTortasComponent,
     ServersComponent,
+    PaginatorComponent,
 
   ],
   imports: [
