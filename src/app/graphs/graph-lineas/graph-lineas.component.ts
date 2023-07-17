@@ -35,6 +35,38 @@ export class GraphLineasComponent implements OnInit{
           borderColor: 'rgb(150, 150, 150)',
           backgroundColor: 'rgb(150, 150, 150)',
           tension: 0.1
+        },
+        {
+          label: 'My First Dataset',
+          data: [64, 32, 54, 65, 76, 24, 26, 65],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          backgroundColor:'rgb(75, 192, 192)',
+          tension: 0.1
+        },
+        {
+          label: 'My First Dataset',
+          data: [74, 26, 72, 75, 62, 74, 24, 14],
+          fill: false,
+          borderColor: 'rgb(63, 43, 134)',
+          backgroundColor: 'rgb(150, 150, 150)',
+          tension: 0.1
+        },
+        {
+          label: 'My First Dataset',
+          data: [74, 53, 74, 56, 92, 51, 34,23],
+          fill: false,
+          borderColor: 'rgb(65, 175, 135)',
+          backgroundColor:'rgb(75, 192, 192)',
+          tension: 0.1
+        },
+        {
+          label: 'My First Dataset',
+          data: [45, 23, 13, 61, 87, 35, 54, 24],
+          fill: false,
+          borderColor: 'rgb(200, 200, 150)',
+          backgroundColor: 'rgb(150, 150, 150)',
+          tension: 0.1
         }
       ],     
       }
