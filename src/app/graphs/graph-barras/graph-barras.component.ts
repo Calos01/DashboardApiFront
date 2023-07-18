@@ -23,7 +23,7 @@ renderGrafico(){
   this.chart= new Chart("graphics", {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Red', 'Blue', 'Purple', 'Green', 'Purple', 'Orange'],
       datasets: [{
         label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
@@ -32,6 +32,11 @@ renderGrafico(){
       {
         label: '# of Votes',
         data: [22, 37, 13, 15, 10, 5],
+        borderWidth: 1
+      },
+      {
+        label: '# of Votes',
+        data: [15, 47, 7, 35, 23, 18],
         borderWidth: 1
       }]
     },
