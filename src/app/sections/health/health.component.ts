@@ -21,5 +21,15 @@ export class HealthComponent {
     id:3,
     name:"serverdsad",
     online:false
+  },
+  {
+    id:4,
+    name:"serr4re",
+    online:true
+  },
+  {
+    id:5,
+    name:"seewqe",
+    online:false
   }];
 }
