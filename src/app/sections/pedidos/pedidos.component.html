@@ -18,10 +18,12 @@
                 <td>{{pedido.pedRealizado}}</td>
                 <!-- buscar date pipe para arreglar las fechas -->
                 <td>{{pedido.pedCompletado | date:'medium'}}</td>
-                <td>Status</td>
+                <td>{{pedido.status}}</td>
             </tr>
 
         </tbody>
     </table>
+
+    <app-paginator (goPrev)="clickPrev()" (goNext)="clickNext()"></app-paginator>
 
 </div>
