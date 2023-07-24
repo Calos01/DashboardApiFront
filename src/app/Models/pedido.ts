@@ -6,4 +6,5 @@ export interface Pedido{
     amount:number,
     pedRealizado:Date,
     pedCompletado:Date
+    status:boolean
 }
