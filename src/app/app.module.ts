@@ -15,6 +15,7 @@ import { ServersComponent } from './servers/servers.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TopComponent } from './top/top.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     GraphTortasComponent,
     ServersComponent,
     PaginatorComponent,
-    UserComponent
+    UserComponent,
+    TopComponent
   ],
   imports: [
     BrowserModule,
