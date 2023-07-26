@@ -15,6 +15,7 @@ import { ServersComponent } from './servers/servers.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TablasComponent } from './tablas/tablas.component';
 import { TopComponent } from './top/top.component';
 
 
@@ -32,6 +33,7 @@ import { TopComponent } from './top/top.component';
     ServersComponent,
     PaginatorComponent,
     UserComponent,
+    TablasComponent,
     TopComponent
   ],
   imports: [
