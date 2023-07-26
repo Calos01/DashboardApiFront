@@ -15,6 +15,7 @@ import { ServersComponent } from './servers/servers.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TablasComponent } from './tablas/tablas.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     GraphTortasComponent,
     ServersComponent,
     PaginatorComponent,
-    UserComponent
+    UserComponent,
+    TablasComponent
   ],
   imports: [
     BrowserModule,
