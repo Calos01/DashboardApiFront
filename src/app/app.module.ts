@@ -17,6 +17,7 @@ import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TablasComponent } from './tablas/tablas.component';
 import { TopComponent } from './top/top.component';
+import { HolaComponent } from './hola/hola.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { TopComponent } from './top/top.component';
     PaginatorComponent,
     UserComponent,
     TablasComponent,
-    TopComponent
+    TopComponent,
+    HolaComponent
   ],
   imports: [
     BrowserModule,
