@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TablasComponent } from './tablas/tablas.component';
 import { TopComponent } from './top/top.component';
 import { HolaComponent } from './hola/hola.component';
+import { CambiosComponent } from './cambios/cambios.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 
 
@@ -38,6 +39,7 @@ import { EmpresaComponent } from './empresa/empresa.component';
     TablasComponent,
     TopComponent,
     HolaComponent,
+    CambiosComponent,
     EmpresaComponent
   ],
   imports: [
