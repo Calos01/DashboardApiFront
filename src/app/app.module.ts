@@ -19,6 +19,7 @@ import { TablasComponent } from './tablas/tablas.component';
 import { TopComponent } from './top/top.component';
 import { HolaComponent } from './hola/hola.component';
 import { CambiosComponent } from './cambios/cambios.component';
+import { EmpresaComponent } from './empresa/empresa.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { CambiosComponent } from './cambios/cambios.component';
     TablasComponent,
     TopComponent,
     HolaComponent,
-    CambiosComponent
+    CambiosComponent,
+    EmpresaComponent
   ],
   imports: [
     BrowserModule,
