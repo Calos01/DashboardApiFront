@@ -20,6 +20,7 @@ import { TopComponent } from './top/top.component';
 import { HolaComponent } from './hola/hola.component';
 import { CambiosComponent } from './cambios/cambios.component';
 import { EmpresaComponent } from './empresa/empresa.component';
+import { CamposComponent } from './campos/campos.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { EmpresaComponent } from './empresa/empresa.component';
     TopComponent,
     HolaComponent,
     CambiosComponent,
-    EmpresaComponent
+    EmpresaComponent,
+    CamposComponent
   ],
   imports: [
     BrowserModule,
