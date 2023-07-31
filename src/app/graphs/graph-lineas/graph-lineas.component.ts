@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Chart,registerables} from 'chart.js';
+import { PrincipalService } from 'src/app/principal.service';
 Chart.register(...registerables);
 
 @Component({
@@ -9,66 +10,23 @@ Chart.register(...registerables);
 })
 export class GraphLineasComponent implements OnInit{
   chart1!:any;
-  constructor() {
+  datalabelsfecha!:string[];
+  datalabelcustomer!:string[];
+  datatotales!:number[];
+  //para almacenar los valores totales por fecha y customer
+  dataByDateAndCustomer:{[date:string]:{[customerId:number]:number}}={};
+  constructor(private _service:PrincipalService) {
     
   }
   ngOnInit(): void {
-    this.renderlineas();
+    this.getOrdersCustomerDate();
   }
-  renderlineas(){
+  renderlineas(dates:string[], datasetstotal:any[]){
     this.chart1= new Chart("lineas",{
       type: 'line',
       data: {
-        labels: ['Enero','February','March','April','May','June','July','August'],
-        datasets: [{
-          label: 'My First Dataset',
-          data: [65, 59, 80, 81, 56, 55, 40,55],
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          backgroundColor:'rgb(75, 192, 192)',
-          tension: 0.1
-        },
-        {
-          label: 'My First Dataset',
-          data: [25, 79, 40, 61, 46, 35, 30,59],
-          fill: false,
-          borderColor: 'rgb(150, 150, 150)',
-          backgroundColor: 'rgb(150, 150, 150)',
-          tension: 0.1
-        },
-        {
-          label: 'My First Dataset',
-          data: [64, 32, 54, 65, 76, 24, 26, 65],
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          backgroundColor:'rgb(75, 192, 192)',
-          tension: 0.1
-        },
-        {
-          label: 'My First Dataset',
-          data: [74, 26, 72, 75, 62, 74, 24, 14],
-          fill: false,
-          borderColor: 'rgb(63, 43, 134)',
-          backgroundColor: 'rgb(150, 150, 150)',
-          tension: 0.1
-        },
-        {
-          label: 'My First Dataset',
-          data: [74, 53, 74, 56, 92, 51, 34,23],
-          fill: false,
-          borderColor: 'rgb(65, 175, 135)',
-          backgroundColor:'rgb(75, 192, 192)',
-          tension: 0.1
-        },
-        {
-          label: 'My First Dataset',
-          data: [45, 23, 13, 61, 87, 35, 54, 24],
-          fill: false,
-          borderColor: 'rgb(200, 200, 150)',
-          backgroundColor: 'rgb(150, 150, 150)',
-          tension: 0.1
-        }
-      ],     
+        labels: dates,
+        datasets: datasetstotal,     
       }
     });
   }
@@ -84,4 +42,49 @@ export class GraphLineasComponent implements OnInit{
   onWindowResize() {
     this.resizeChart();
   }
+
+  //Ventas suma totales por dia de cada customer GOZU!!
+  getOrdersCustomerDate(){
+    this._service.getOrderPagination(1,20).subscribe((res:any)=>{
+      res.forEach((order: any) => {
+        const date = order.pedRealizado.split('T')[0];
+        const customerName = order.customer.name;
+        const total = order.total;
+        //Buscara por fecha y customer
+        if (!this.dataByDateAndCustomer[date]) {
+          this.dataByDateAndCustomer[date] = {};
+        }
+        //si no existe le agregamos total 
+        this.dataByDateAndCustomer[date][customerName] = (this.dataByDateAndCustomer[date][customerName] || 0) + total;
+      });
+      const dates = Object.keys(this.dataByDateAndCustomer);
+      const customers = new Set<string>(); // Utilizamos un conjunto para almacenar todos los nombres de clientes únicos
+
+      // Recorrer todas las fechas y añadir los nombres de clientes al conjunto
+      dates.forEach(date => {
+        Object.keys(this.dataByDateAndCustomer[date]).forEach(customerName => {
+          customers.add(customerName);
+        });
+      });
+      
+      const datasets = Array.from(customers).map((customerName:any) => ({
+      label: `Customer ${customerName}`,
+      data: dates.map((date) => this.dataByDateAndCustomer[date][customerName] || 0),
+      fill: false,
+      borderColor: this.getRandomColor(),
+      borderWidth: 2,
+      }));
+      this.renderlineas(dates,datasets);
+    });
+    
+  }
+  getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+  
 }
