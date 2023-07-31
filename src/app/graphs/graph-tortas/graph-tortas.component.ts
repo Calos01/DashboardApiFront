@@ -1,5 +1,8 @@
 import { AfterViewInit, Component, HostListener, Input, OnInit} from '@angular/core';
 import { Chart,registerables} from 'chart.js';
+import { PrincipalService } from 'src/app/principal.service';
+import { forkJoin } from 'rxjs';
+
 Chart.register(...registerables);
 
 @Component({
@@ -11,15 +14,17 @@ export class GraphTortasComponent implements OnInit,AfterViewInit{
 chart1!:any;
 chart2!:any;
 @Input() canvasId!:String;
+dataOrderEstados:any[]=[];
+dataOrderCustomers:any[]=[];
 
-constructor() {
+constructor(private _service:PrincipalService) {
   
 }
   ngOnInit(): void {
     
   }
   ngAfterViewInit(): void {
-    this.renderGrafico();
+    this.getDataAndRenderGrafico();
     this.resizeChart();
   }
   renderGrafico(){
@@ -29,19 +34,12 @@ constructor() {
     this.chart1=new Chart("tortaTipos",{
       type: 'doughnut',
       data: {
-        labels: [
-          'Red',
-          'Blue',
-          'Yellow'
-        ],
+        labels: 
+          this.dataOrderEstados.map((res:any)=>res.estados)
+        ,
         datasets: [{
           label: 'My First Dataset',
-          data: [300, 50, 100],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ]
+          data: this.dataOrderEstados.map((res:any)=>res.total) 
         }]
       }
     });
@@ -49,19 +47,10 @@ constructor() {
     this.chart2=new Chart("tortaSectores",{
       type: 'doughnut',
       data: {
-        labels: [
-          'Red',
-          'Blue',
-          'Yellow'
-        ],
+        labels: this.dataOrderCustomers.map((f:any)=>f.names),
         datasets: [{
           label: 'My First Dataset',
-          data: [300, 50, 100],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ]
+          data: this.dataOrderCustomers.map((f:any)=>f.total) 
         }]
       }
     });
@@ -80,4 +69,25 @@ constructor() {
   onWindowResize() {
     this.resizeChart();
   }
+
+  //JUNTANDO DOS _service con forkjoin para q se ejecuten juntos antes del renderGrafico
+  getDataAndRenderGrafico() {
+    forkJoin([
+      this._service.getOrderEstados(),
+      this._service.getOrderCustomers(3)
+    ]).subscribe(
+      ([orderEstadosData, orderCustomersData]) => {
+        //RARAZO orderEstadosData deberian ser Arrays pero sale como objeto en errorlens 
+        //Solucion poner Object.values
+        this.dataOrderEstados = Object.values(orderEstadosData);
+        this.dataOrderCustomers = Object.values(orderCustomersData);
+        //RARAZO al hacer clg votan lo mismo
+        // console.log(orderEstadosData);
+        // console.log(this.dataOrderEstados);
+        this.renderGrafico();
+      }
+    );
+  }
+
+
 }
