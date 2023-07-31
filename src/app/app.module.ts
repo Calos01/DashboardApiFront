@@ -13,14 +13,9 @@ import { GraphBarrasComponent } from './graphs/graph-barras/graph-barras.compone
 import { GraphTortasComponent } from './graphs/graph-tortas/graph-tortas.component';
 import { ServersComponent } from './servers/servers.component';
 import { PaginatorComponent } from './paginator/paginator.component';
-import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TablasComponent } from './tablas/tablas.component';
-import { TopComponent } from './top/top.component';
-import { HolaComponent } from './hola/hola.component';
-import { CambiosComponent } from './cambios/cambios.component';
-import { EmpresaComponent } from './empresa/empresa.component';
-import { CamposComponent } from './campos/campos.component';
+
+
 
 
 @NgModule({
@@ -35,14 +30,7 @@ import { CamposComponent } from './campos/campos.component';
     GraphBarrasComponent,
     GraphTortasComponent,
     ServersComponent,
-    PaginatorComponent,
-    UserComponent,
-    TablasComponent,
-    TopComponent,
-    HolaComponent,
-    CambiosComponent,
-    EmpresaComponent,
-    CamposComponent
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
