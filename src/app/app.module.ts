@@ -14,6 +14,7 @@ import { GraphTortasComponent } from './graphs/graph-tortas/graph-tortas.compone
 import { ServersComponent } from './servers/servers.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormularioComponent } from './formulario/formulario.component';
 
 
 
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     GraphBarrasComponent,
     GraphTortasComponent,
     ServersComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
