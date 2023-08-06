@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormularioComponent } from './formulario/formulario.component';
 import { PruebaComponent } from './prueba/prueba.component';
 import { ArregloComponent } from './arreglo/arreglo.component';
+import { PruebasComponent } from './pruebas/pruebas.component';
 
 
 
@@ -36,7 +37,8 @@ import { ArregloComponent } from './arreglo/arreglo.component';
     PaginatorComponent,
     FormularioComponent,
     PruebaComponent,
-    ArregloComponent
+    ArregloComponent,
+    PruebasComponent
   ],
   imports: [
     BrowserModule,
